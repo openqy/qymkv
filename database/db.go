@@ -11,15 +11,13 @@ const (
 )
 
 type DB struct {
-	number int
-	data   dict.Dict
+	data dict.Dict
 
 	locker *lock.Locks
 }
 
-func MakeDB(num int) *DB {
+func MakeDB() *DB {
 	db := &DB{
-		num,
 		dict.MakeConcurrent(dataSize),
 		lock.MakeLocks(lockCount),
 	}
