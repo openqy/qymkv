@@ -13,6 +13,9 @@ https://space.bilibili.com/1324259795/channel/seriesdetail?sid=642777
 https://hardcore.feishu.cn/mindnotes/bmncn1pO2ZhEyFkBgbQ2ttXncsc
 
 ## 开发了解
+首先需要明白的一点是，redis是单线程的，但是有多个客户端可以并行发送，而确保其单线程数据不出错的原因是有一个io复用层->事件分派器来确保一个一个命令的执行。
+而我们要实现的qymkv是没有这一层封装的，因此即使我们没有使用goroutine肯定也是是需要锁的。所以需要额外关注这个concurrentMap，以及为何这样实现。
+
 首先需要了解redis的各种命令的功能，因为redis的命令比较成熟，所以我们的功能基本对标他即可。
 然后就是需要熟悉本项目各个源码包，比较重要的就是dict/concurrent.go。
 然后阅读下面的实现，了解各种开发需求。
