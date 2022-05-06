@@ -31,3 +31,16 @@ func (s *StringOp) Set(key string, val interface{}) (*Reply, error) {
 	}
 	return reply, nil
 }
+
+func (s *StringOp) Get(key string) (*Reply, error) {
+	if s.db == nil {
+		return nil, NULLDBERROR
+	}
+	val, exist := s.db.Get(key)
+	reply := &Reply{Success: false}
+	if exist {
+		reply.Success = true
+		reply.Msg = val
+	}
+	return reply, nil
+}
