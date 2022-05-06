@@ -15,7 +15,7 @@ https://hardcore.feishu.cn/mindnotes/bmncn1pO2ZhEyFkBgbQ2ttXncsc
 ## 实现
 首先需要完成database的一些存储相关设计并实现以配置文件redis.toml启动项目
 然后实现dict、list、sds、set这四个对象的部分操作并完成测试
-然后可以转入连接阶段，目前可以考虑与redis-cli对接，也可以直接用网页方式，也可以两种一起（待定）
+然后可以转入连接阶段，目前可以考虑与redis-cli对接(x,暂时不打算了)，也可以直接用网页方式，也可以两种一起（待定）
 然后需要实现aof持久化
 
 完成上面部分可以考虑进行sortedset的开发

@@ -17,7 +17,7 @@ type DB struct {
 	locker *lock.Locks
 }
 
-func newDB(num int) *DB {
+func MakeDB(num int) *DB {
 	db := &DB{
 		num,
 		dict.MakeConcurrent(dataSize),
