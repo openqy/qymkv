@@ -30,7 +30,7 @@ func TestSet(t *testing.T) {
 	if !get.Success {
 		t.Errorf("expected true, get %v, msg=%v", get.Success, get.Msg)
 	}
-	if get.Msg.(int) != 1 {
+	if get.Msg.(string) != "1" {
 		t.Errorf("expected 1, get %v", get.Msg)
 	}
 }
@@ -60,7 +60,7 @@ func TestMultiSet(t *testing.T) {
 	if !get.Success {
 		t.Errorf("expected true, get %v, msg=%v", get.Success, get.Msg)
 	}
-	if get.Msg.(int) != 0 {
+	if get.Msg.(string) != "0" {
 		t.Errorf("expected 0, get %v", get.Msg)
 	}
 
@@ -71,7 +71,7 @@ func TestMultiSet(t *testing.T) {
 	if !get.Success {
 		t.Errorf("expected true, get %v, msg=%v", get.Success, get.Msg)
 	}
-	if get.Msg.(int) != 1 {
+	if get.Msg.(string) != "1" {
 		t.Errorf("expected 1, get %v", get.Msg)
 	}
 }
